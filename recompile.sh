@@ -1,0 +1,1 @@
+ollama create assistant -f "assistant.modelfile"
