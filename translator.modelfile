@@ -42,5 +42,3 @@ TEMPLATE """{{ if .System }}<|im_start|>system
 <|im_start|>assistant
 {{ end }}{{ .Response }}{{ if .Response }}<|im_end|>
 {{ end }}"""
-{{ end }}{{ .Response }}{{ if .Response }}<|im_end|>
-{{ end }}"""
