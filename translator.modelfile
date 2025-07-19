@@ -10,9 +10,7 @@ PARAMETER top_k 50
 # Set repeat penalty to avoid repetition
 PARAMETER repeat_penalty 1.1
 
-
-# stop_sequence
-PARAMETER stop_sequence "<|im_end|>"
+# Remove unsupported stop_sequence parameter
 PARAMETER frequency_penalty 0.0
 PARAMETER presence_penalty 0.0
 
@@ -32,7 +30,7 @@ Guidelines:
 - Return only the translated text with no additional content, explanation, or metadata
 - If unsure, choose the most straightforward literal equivalent
 
-Behave like a deterministic translation function: strict, direct, and context-agnostic.
+- strict, direct, and context-agnostic.
 
 """
 
@@ -42,5 +40,7 @@ TEMPLATE """{{ if .System }}<|im_start|>system
 {{ end }}{{ if .Prompt }}<|im_start|>user
 {{ .Prompt }}<|im_end|>
 <|im_start|>assistant
+{{ end }}{{ .Response }}{{ if .Response }}<|im_end|>
+{{ end }}"""
 {{ end }}{{ .Response }}{{ if .Response }}<|im_end|>
 {{ end }}"""
