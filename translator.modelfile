@@ -1,4 +1,4 @@
-FROM winkefinger/alma-13b:Q5_K_M
+FROM llama3:8b
 
 # Set the temperature to 0.1 for more deterministic translations
 PARAMETER temperature 0.1
@@ -29,6 +29,7 @@ Guidelines:
 - Do not preserve formatting unless explicitly asked
 - Return only the translated text with no additional content, explanation, or metadata
 - If unsure, choose the most straightforward literal equivalent
+
 - strict, direct, and context-agnostic.
 
 """
